@@ -1,0 +1,18 @@
+App de Sorteio
+
+
+Requisitos Funcionais:
+
+1. Receber mais de um valor para ser sorteado
+2. Receber a quantidade de valores a serem sorteados
+3. Ramdomizar os valores com base no item acima
+4. Exibir os valores sorteados
+5. Marcar os valores já sorteados para que não entrem no próximo sorteio
+
+Requisitos não funcionais:
+
+1. O sistema será desenvolvido utilizando a linguagem Javascript
+2. O Framework utilizado será o Vue JS 2
+3. A Hospedagem da aplicação será feita no github pages
+
+

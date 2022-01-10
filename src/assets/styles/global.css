@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Poppins:wght@300;400;500;700&display=swap');
+
+:root {
+    --bg: #1d2435;
+    --main: #4065d7;
+    --primary: #676d81;
+    --secondary: #8c8ca4;
+    --font: #a0a9c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
