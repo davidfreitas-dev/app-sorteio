@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Content :values="values"/>
+    <Content :values="values" @remove="remove($event)"/>
     <Footer />
   </div>
 </template>
@@ -18,11 +18,16 @@ export default {
   components: { Header, Content, Footer },
   data() {
     return {
-      values: [
-        { id: 1, name: 'David', status: false },
-        { id: 2, name: 'Batista', status: false },
-        { id: 3, name: 'Freitas', status: false },
-      ]
+      values: [ 'David', 'Batista', 'Freitas' ]
+    }
+  },
+  methods: {
+    remove(random) {
+      console.log(random)
+      const values = this.values
+      console.log(this.values)
+      //values.splice(random, 1)
+      console.log(values)
     }
   }
 }

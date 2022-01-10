@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-      <Raffle :values="values"/>
+      <Raffle :values="values" @remove="remove"/>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ import Raffle from '../components/Raffle.vue'
 export default {
   components: { Raffle },
   props: ['values'],
+  methods: {
+    remove(random) {
+      this.$emit('remove', random)
+    }
+  }
 }
 </script>
 

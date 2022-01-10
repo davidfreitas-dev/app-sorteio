@@ -1,15 +1,13 @@
 <template>
   <div class="raffle">
-      <textarea cols="30" rows="5"></textarea>
-      <input type="text">
+      <textarea cols="30" rows="5" placeholder="Digite aqui os nomes que quer sortear"></textarea>
+      <input type="text" placeholder="Quantidade a ser sorteada por vez">
       <button @click="draw">Sortear</button>
-      <div class="display__raffle">
-        <ul>
-          <li v-for="(value, id) in values" :key="id">
-            {{ value.id == result ? value.name : '' }}
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li v-for="(value, i) in values" :key="i">
+          <span>{{ i == random ? value : '' }}</span>
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -18,15 +16,17 @@ export default {
   props: ['values'],
   data() {
     return {
-      counter: 1,
-      result: ''
+      random: null
     }
   },
   methods: {
     draw() {
       const max = this.values.length
-      const result = Math.floor(Math.random() * (max - 1 + 1) + 1)
-      this.result = result
+      const random = Math.floor(Math.random() * max)
+      
+      this.random = random
+      
+      this.$emit('remove', random)
     }
   }
 }
@@ -43,7 +43,8 @@ export default {
 
   textarea, input {
     color: var(--font);
-    padding: .5rem;
+    width: 350px;
+    padding: 1rem;
     outline: none;
     border-radius: 3px;
     border: 1px solid var(--secondary);
@@ -65,5 +66,9 @@ export default {
     list-style: none;
     display: grid;
     place-items: center;
+  }
+
+  span {
+    font-size: 1.3rem;
   }
 </style>
