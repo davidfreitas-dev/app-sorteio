@@ -18,5 +18,6 @@ export default {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    margin-top: 70px;
   }
 </style>

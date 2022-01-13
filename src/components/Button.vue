@@ -38,5 +38,6 @@ export default {
     border: none;
     border-radius: 3px;
     background-color: var(--main);
+    cursor: pointer;
   }
 </style>
