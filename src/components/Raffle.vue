@@ -15,19 +15,22 @@ export default {
   data() {
     return {
       values: [],
-      selectedValues: []
+      selectedValues: [],
+      quantity: null
     }
   },  
   methods: {
     setValues(values) {
-      if (values == '') {
+      if (values.names == '') {
         alert('Insira os nomes a serem sorteados!')
       }
-      this.values = values
+      this.values = values.names
+      this.quantity = values.quantity
     },
     removeValues(random) {
+      const quantity = this.quantity ? this.quantity : 1
       const values = this.values
-      const selectedValue = values.splice(random, 1)
+      const selectedValue = values.splice(random, quantity)
       this.selectedValues.push(selectedValue[0])
     }
   }

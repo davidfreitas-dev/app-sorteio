@@ -10,12 +10,7 @@
 
 <script>
 export default {
-  props: ['selectedValues'],
-  watch: {
-    selectedValues() {
-      console.log(this.selectedValues)
-    }
-  }
+  props: ['selectedValues']
 }
 </script>
 

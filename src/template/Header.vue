@@ -36,6 +36,7 @@ export default {
   }
 
   header h2 span {
+    font-size: 1rem;
     color: var(--main);
   }
 
