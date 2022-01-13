@@ -1,8 +1,8 @@
 <template>
   <div class="raffle">      
-      <Form @countNames="countNames"/>
-      <Button @remove="remove" :qtd-names="qtdNames"/>
-      <Display />      
+      <Form @setValues="setValues"/>
+      <Button @removeValues="removeValues" :values="values"/>
+      <Display :selectedValues="selectedValues"/>      
   </div>
 </template>
 
@@ -11,24 +11,24 @@ import Form from './Form.vue'
 import Button from './Button.vue'
 import Display from './Display.vue'
 export default {
-  props: ['values'],
   components: { Form, Button, Display },
   data() {
     return {
-      qtdNames: 0
+      values: [],
+      selectedValues: []
     }
-  },
+  },  
   methods: {
-    countNames(names) {
-      const count = names.length
-      this.qtdNames = count
-      console.log(this.qtdNames)
+    setValues(values) {
+      if (values == '') {
+        alert('Insira os nomes a serem sorteados!')
+      }
+      this.values = values
     },
-    remove(random) {
-      console.log(random)
+    removeValues(random) {
       const values = this.values
-      const selectedValues = values.splice(',', 1)
-      console.log(selectedValues)
+      const selectedValue = values.splice(random, 1)
+      this.selectedValues.push(selectedValue[0])
     }
   }
 }

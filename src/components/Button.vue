@@ -1,17 +1,22 @@
 <template>
   <div class="draw__button">
-    <button @click="draw">Sortear</button>
+    <button @click="getRamdom">Sortear</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['qtdNames'],
+  props: ['values'],
   methods: {
-    draw() {
-      const max = this.qtdNames
+    getRamdom() {
+      const values = this.values
+      if (values == '') {
+        alert('Todos os nomes já foram sorteados!')
+        return
+      }
+      const max = values.length
       const random = Math.floor(Math.random() * max)      
-      this.$emit('remove', random)
+      this.$emit('removeValues', random)
     }
   }
 }

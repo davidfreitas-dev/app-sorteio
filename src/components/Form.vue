@@ -1,7 +1,7 @@
 <template>
   <div class="draw__form">
-      <textarea cols="30" rows="5" placeholder="Digite aqui os nomes que quer sortear" v-model="names" @blur="handleBlur"></textarea>
-      <input type="text" placeholder="Quantidade a ser sorteada por vez" v-model="qtdDraw">
+      <textarea cols="30" rows="5" placeholder="Digite aqui os nomes separados por vírgula" v-model="names" @blur="handleBlur"></textarea>
+      <input type="text" placeholder="Quantidade a ser sorteada por vez">
   </div>
 </template>
 
@@ -10,13 +10,12 @@ export default {
   data() {
     return {
       names: '',
-      qtdDraw: 1
     }
   },
   methods: {
     handleBlur() {
       const names = this.names.split(',')
-      this.$emit('countNames', names)
+      this.$emit('setValues', names)
     }
   }
 }
