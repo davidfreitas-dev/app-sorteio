@@ -1,7 +1,7 @@
 <template>
   <div class="raffle">      
       <Form @countNames="countNames"/>
-      <Button />
+      <Button @remove="remove" :qtd-names="qtdNames"/>
       <Display />      
   </div>
 </template>
@@ -22,6 +22,13 @@ export default {
     countNames(names) {
       const count = names.length
       this.qtdNames = count
+      console.log(this.qtdNames)
+    },
+    remove(random) {
+      console.log(random)
+      const values = this.values
+      const selectedValues = values.splice(',', 1)
+      console.log(selectedValues)
     }
   }
 }
