@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Poppins:wght@300;400;500;700&display=swap');
 
+.light__theme:root {
+    --bg: #fff;
+    --main: #4065d7;
+    --primary: #f6f6f6;
+    --secondary: #b9bed1;
+    --font: #1c2230;
+    --box-shadow: 0px -5px 10px 3px #3c3c3c;
+}
+
 :root {
     --bg: #1c2230;
     --main: #4065d7;
     --primary: #212639;
     --secondary: #54546b;
     --font: #b9bed1;
+    --box-shadow: 0px -5px 10px 3px #121212;
 }
 
 * {
@@ -18,4 +28,5 @@
 body {
     color: var(--font);
     background-color: var(--bg);
+    transition: 0.2s linear;
 }

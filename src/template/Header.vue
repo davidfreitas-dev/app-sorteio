@@ -2,28 +2,22 @@
   <header class="header">
     <h2>Dave <span>dev</span></h2>
     <nav class="nav">
-      <span class="menu__toggle" aria-label="Abrir menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
-        <!-- icone menu toglle -->
-      </span>
-      <ul class="nav__list" role="menu">
-        <li class="nav__item">
-          <span class="theme__toggle">Theme Toggle</span>
-        </li>        
-        <div class="social__media">
-            <!-- icones com links para mídias sociais -->
-        </div>
-      </ul>
+      <span @click="toggleTheme">Toggle</span>
     </nav>
   </header>
 </template>
 
 <script>
 export default {
-  
+  methods: {
+    toggleTheme() {
+      return document.documentElement.classList.toggle('light__theme')
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
   .header {
     display: flex;
     justify-content: space-around;
@@ -34,33 +28,10 @@ export default {
     top: 0;
     z-index: 1;
     background-color: var(--bg);
-    box-shadow: 0px -5px 10px 3px #3c3c3c;
+    box-shadow: var(--box-shadow);
+    transition: 0.2s linear;
   }
-  .header__logo {
-    height: 70px;
-  }
-  .menu__toggle {
-    display: none;
-  }
-  .nav__list {
-    display: flex;
-    gap: .5rem;
-  }
-  .nav__link {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: .5rem;
-    color: var(--text-color);
-  }
-  .nav__link:hover {
-    border-radius: 5px;
-    color: #fff;
-    background-color: #00cac7;
-  }
-  .social__media {
-    display: none;
-  }
+
   header h2 span {
     color: var(--main);
   }

@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .draw__display {
     display: grid;
     justify-content: center;

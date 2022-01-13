@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .draw__form {
     display: grid;
     justify-content: center;
@@ -38,5 +38,6 @@ export default {
     border-radius: 3px;
     border: 1px solid var(--secondary);
     background-color: var(--primary);
+    transition: 0.2s linear;
   }
 </style>
