@@ -35,5 +35,6 @@ export default {
   .error {
     font-size: .85rem;
     color: red;
+    padding: .75rem;
   }
 </style>

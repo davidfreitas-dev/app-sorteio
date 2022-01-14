@@ -19,7 +19,7 @@ export default {
       if (this.values.length == 0) {
 
         this.error.status = true
-        this.error.message = 'Insira os nomes antes de sortear'
+        this.error.message = 'Não há nomes para sortear'
 
         const error = this.error
         const shuffleValues = []
@@ -51,6 +51,9 @@ export default {
       }
 
       return array
+    },
+    clear() {
+
     }
   }
 }
