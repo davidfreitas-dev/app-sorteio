@@ -15,7 +15,7 @@ jobs:
         env:
           email: 'davidfreitas.dev@outlook.com'
           username: 'davidfreitas-dev'
-          access_token: '<Github Access Token Here>'
+          access_token: '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'
         run: |
           git config --global credential.helper store
           echo "https://${access_token}:x-oauth-basic@github.com" > ~/.git-credentials
