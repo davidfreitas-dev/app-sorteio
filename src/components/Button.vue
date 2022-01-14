@@ -1,6 +1,6 @@
 <template>
   <div class="draw__button">
-    <button @click="getRamdom">Sortear</button>
+    <button @click="draw">Sortear</button>
   </div>
 </template>
 
@@ -8,15 +8,21 @@
 export default {
   props: ['values'],
   methods: {
-    getRamdom() {
+    draw() {
       const values = this.values
-      if (values == '') {
-        alert('Todos os nomes já foram sorteados!')
-        return
+      const shuffleValues = this.shuffle(values)          
+      this.$emit('removeValues', shuffleValues)
+    },
+    shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex -= 1
+        temporaryValue = array[currentIndex]
+        array[currentIndex] = array[randomIndex]
+        array[randomIndex] = temporaryValue
       }
-      const max = values.length
-      const random = Math.floor(Math.random() * max)      
-      this.$emit('removeValues', random)
+      return array
     }
   }
 }

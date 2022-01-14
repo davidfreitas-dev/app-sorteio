@@ -1,8 +1,8 @@
 <template>
   <div class="raffle">      
-      <Form @setValues="setValues"/>
-      <Button @removeValues="removeValues" :values="values"/>
-      <Display :selectedValues="selectedValues"/>      
+      <Form @setValues="setValues" />
+      <Button @removeValues="removeValues" :values="values" />
+      <Display :selectedValues="selectedValues" :error="error" />      
   </div>
 </template>
 
@@ -16,22 +16,26 @@ export default {
     return {
       values: [],
       selectedValues: [],
-      quantity: null
+      quantity: null,
+      error: { message: '', status: false }
     }
   },  
   methods: {
     setValues(values) {
       if (values.names == '') {
-        alert('Insira os nomes a serem sorteados!')
+        this.error.message = 'Insira os nomes a serem sorteados!'
+        this.error.status = true
+        return
       }
+      this.error.status = false
       this.values = values.names
       this.quantity = values.quantity
     },
-    removeValues(random) {
+    removeValues(shuffleValues) {
       const quantity = this.quantity ? this.quantity : 1
-      const values = this.values
-      const selectedValue = values.splice(random, quantity)
-      this.selectedValues.push(selectedValue[0])
+      const selectedValue = shuffleValues.splice(0, quantity)
+      //this.selectedValues.push(selectedValue[0])
+      console.log(selectedValue)
     }
   }
 }

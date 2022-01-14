@@ -4,13 +4,14 @@
       <li v-for="(selectedValue, i) in selectedValues" :key="i">
         <span>{{ selectedValue }}</span>
       </li>
+      <span class="error" v-if="error.status">Erro: {{ error.message }}</span>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['selectedValues']
+  props: ['selectedValues', 'error']
 }
 </script>
 
@@ -29,5 +30,10 @@ export default {
 
   span {
     font-size: 1.3rem;
+  }
+
+  .error {
+    font-size: .85rem;
+    color: red;
   }
 </style>
