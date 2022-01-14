@@ -11,7 +11,7 @@ export default {
     draw() {
       const values = this.values
       const shuffleValues = this.shuffle(values)          
-      this.$emit('removeValues', shuffleValues)
+      this.$emit('draw', shuffleValues)
     },
     shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex

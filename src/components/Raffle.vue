@@ -1,7 +1,7 @@
 <template>
   <div class="raffle">      
       <Form @setValues="setValues" />
-      <Button @removeValues="removeValues" :values="values" />
+      <Button @draw="draw" :values="values" />
       <Display :selectedValues="selectedValues" :error="error" />      
   </div>
 </template>
@@ -10,6 +10,7 @@
 import Form from './Form.vue'
 import Button from './Button.vue'
 import Display from './Display.vue'
+
 export default {
   components: { Form, Button, Display },
   data() {
@@ -31,11 +32,15 @@ export default {
       this.values = values.names
       this.quantity = values.quantity
     },
-    removeValues(shuffleValues) {
+    draw(shuffleValues) {
+      const item = ''
       const quantity = this.quantity ? this.quantity : 1
-      const selectedValue = shuffleValues.splice(0, quantity)
-      //this.selectedValues.push(selectedValue[0])
-      console.log(selectedValue)
+      const selectedValue = shuffleValues.splice(0, quantity)      
+      this.pushValues(item)
+      selectedValue.forEach(this.pushValues)
+    },
+    pushValues(item) {
+      this.selectedValues.push(item)
     }
   }
 }
