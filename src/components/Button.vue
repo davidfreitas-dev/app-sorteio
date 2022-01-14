@@ -1,6 +1,7 @@
 <template>
   <div class="draw__button">
-    <button @click="draw">Sortear</button>
+    <button class="btn__draw" @click="draw">Sortear</button>
+    <button class="btn__clear" @click="clear">Limpar</button>
   </div>
 </template>
 
@@ -62,15 +63,29 @@ export default {
     align-items: center;
   }
 
-  button {
+  .btn__draw {
     color: #fcfcfc;
     font-size: 1.1rem;
     font-weight: 600;
     padding: .5rem 1rem;
+    margin: .5rem;
     outline: none;
-    border: none;
+    border: 1px solid var(--main);
     border-radius: 3px;
     background-color: var(--main);
+    cursor: pointer;
+  }
+
+  .btn__clear {
+    color: var(--main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    outline: none;
+    border: 1px solid var(--main);
+    border-radius: 3px;
+    background-color: #fcfcfc;
     cursor: pointer;
   }
 </style>
