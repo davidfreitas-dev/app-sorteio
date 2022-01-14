@@ -23,11 +23,6 @@ export default {
   },  
   methods: {
     setValues(values) {
-      if (values.names == '') {
-        this.error.message = 'Insira os nomes a serem sorteados!'
-        this.error.status = true
-        return
-      }
       this.error.status = false
       this.values = values.names
       this.quantity = values.quantity
