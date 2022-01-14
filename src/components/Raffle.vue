@@ -18,19 +18,23 @@ export default {
       values: [],
       selectedValues: [],
       quantity: null,
-      error: { message: '', status: false }
+      error: ''
     }
   },  
   methods: {
     setValues(values) {
-      this.error.status = false
       this.values = values.names
       this.quantity = values.quantity
     },
-    draw(shuffleValues) {
+    draw(event) {
+      if (event.error) {
+        this.error = event.error
+      }
+
       const item = ''
       const quantity = this.quantity ? this.quantity : 1
-      const selectedValue = shuffleValues.splice(0, quantity)      
+      const selectedValue = event.shuffleValues.splice(0, quantity)
+
       this.pushValues(item)
       selectedValue.forEach(this.pushValues)
     },

@@ -1,7 +1,7 @@
 <template>
   <footer>
-      <span>Desenvolvido por <a href="https://davidfreitas.dev.br">David Freitas</a>.</span>
-      <span>Ver no <a>Github <strong>→</strong></a></span>
+      <span>Desenvolvido por <a href="https://davidfreitas.dev.br" target="_blank">David Freitas</a>.</span>
+      <span>Ver no <a href="https://github.com/davidfreitas-dev/app-sorteio-vue" target="_blank">Github <strong>→</strong></a></span>
   </footer>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
   }
   span {
     font-size: .85rem;

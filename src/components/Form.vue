@@ -1,7 +1,7 @@
 <template>
   <div class="draw__form">
       <textarea v-model="names" @blur="handleBlur" cols="30" rows="5" placeholder="Digite aqui os nomes separados por vírgula"></textarea>
-      <input type="text" v-model="quantity" @blur="handleBlur" placeholder="Quantidade a ser sorteada por vez">
+      <input v-model="quantity" @blur="handleBlur" type="text" placeholder="Quantidade a ser sorteada por vez">
   </div>
 </template>
 

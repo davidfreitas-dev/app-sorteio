@@ -7,14 +7,40 @@
 <script>
 export default {
   props: ['values'],
+  data() {    
+    return {
+      error: { message: '', status: false }
+    }
+  },
   methods: {
     draw() {
+      
+      if (this.values.length == 0) {
+
+        this.error.status = true
+        this.error.message = 'Insira os nomes antes de sortear'
+
+        const error = this.error
+        const shuffleValues = []
+        
+        this.$emit('draw', { shuffleValues, error })
+        return
+
+      }
+
+      this.error.message = ''
+      this.error.status = false
+
+      const error = this.error
       const values = this.values
-      const shuffleValues = this.shuffle(values)          
-      this.$emit('draw', shuffleValues)
+      const shuffleValues = this.shuffle(values)
+
+      this.$emit('draw', { shuffleValues, error })
+
     },
     shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex
+
       while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex)
         currentIndex -= 1
@@ -22,6 +48,7 @@ export default {
         array[currentIndex] = array[randomIndex]
         array[randomIndex] = temporaryValue
       }
+
       return array
     }
   }
