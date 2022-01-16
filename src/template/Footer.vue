@@ -18,6 +18,7 @@ export default {
     align-items: center;
     padding: 1rem;
   }
+  
   span {
     font-size: .85rem;
   }
