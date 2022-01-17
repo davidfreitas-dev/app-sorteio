@@ -90,6 +90,5 @@ export default {
     border-radius: 3px;
     background-color: #fcfcfc;
     cursor: pointer;
-  }
-  
+  }  
 </style>
