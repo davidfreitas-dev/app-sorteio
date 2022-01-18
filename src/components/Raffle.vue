@@ -1,8 +1,8 @@
 <template>
   <div class="raffle">      
       <Form @setValues="setValues" />
-      <Button @draw="draw" :values="values" />
-      <Display :selectedValues="selectedValues" :error="error" />      
+      <Button @draw="draw" :names="names" />
+      <Display :selected-names="selectedNames" :error="error" />      
   </div>
 </template>
 
@@ -15,31 +15,32 @@ export default {
   components: { Form, Button, Display },
   data() {
     return {
-      values: [],
-      selectedValues: [],
+      names: [],
       quantity: null,
+      selectedNames: [],
       error: ''
     }
   },  
   methods: {
     setValues(values) {
-      this.values = values.names
+      this.names = values.names
       this.quantity = values.quantity
     },
-    draw(event) {
-      if (event.error) {
-        this.error = event.error
+    draw(values) {
+      if (values.error) {
+        this.error = values.error
+        return
       }
 
       const item = ''
       const quantity = this.quantity ? this.quantity : 1
-      const selectedValue = event.shuffleValues.splice(0, quantity)
+      const selectedName = values.shuffleNames.splice(0, quantity)
 
       this.pushValues(item)
-      selectedValue.forEach(this.pushValues)
+      selectedName.forEach(this.pushValues)
     },
     pushValues(item) {
-      this.selectedValues.push(item)
+      this.selectedNames.push(item)
     }
   }
 }

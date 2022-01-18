@@ -1,8 +1,8 @@
 <template>
   <div class="draw__display">
     <ul>
-      <li v-for="(selectedValue, i) in selectedValues" :key="i">
-        <span>{{ selectedValue }}</span>
+      <li v-for="(selectedName, index) in selectedNames" :key="index">
+        <span>{{ selectedName }}</span>
       </li>
       <span class="error" v-if="error.status">Erro: {{ error.message }}</span>
     </ul>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  props: ['selectedValues', 'error']
+  props: ['selectedNames', 'error']
 }
 </script>
 

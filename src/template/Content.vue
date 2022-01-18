@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+      <h2 class="content__header">Sorteio de Nomes</h2>
       <Raffle />
   </div>
 </template>
@@ -19,5 +20,9 @@ export default {
     align-items: center;
     flex-grow: 1;
     margin-top: 70px;
+  }
+
+  .content__header {
+    padding-top: 1rem;
   }
 </style>

@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  props: ['values'],
+  props: ['names'],
   data() {    
     return {
       error: { message: '', status: false }
@@ -15,29 +15,28 @@ export default {
   },
   methods: {
     draw() {
-      
-      if (this.values.length == 0) {
+      let self = this
+      if (self.names.length == 0) {
 
-        this.error.status = true
-        this.error.message = 'Não há nomes para sortear'
+        self.error.status = true
+        self.error.message = 'Não há nomes para sortear'
 
-        const error = this.error
-        const shuffleValues = []
+        const error = self.error
+        const shuffleNames = []
         
-        this.$emit('draw', { shuffleValues, error })
+        self.$emit('draw', { shuffleNames, error })
         return
 
       }
 
-      this.error.message = ''
-      this.error.status = false
+      self.error.message = ''
+      self.error.status = false
 
-      const error = this.error
-      const values = this.values
-      const shuffleValues = this.shuffle(values)
+      const error = self.error
+      const names = self.names
+      const shuffleNames = self.shuffle(names)
 
-      this.$emit('draw', { shuffleValues, error })
-
+      self.$emit('draw', { shuffleNames, error })
     },
     shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex
@@ -86,7 +85,7 @@ export default {
     padding: .5rem 1rem;
     margin: .5rem;
     outline: none;
-    border: 1px solid var(--main);
+    border: 1px solid var(--border-button);
     border-radius: 3px;
     background-color: #fcfcfc;
     cursor: pointer;
