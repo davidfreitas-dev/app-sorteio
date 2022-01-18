@@ -1,7 +1,7 @@
 <template>
   <div class="raffle">      
-      <Form @setValues="setValues" />
-      <Button @draw="draw" :names="names" />
+      <Form @setValues="setValues" :clear="clear"/>
+      <Button @draw="draw" @clearMemory="clearMemory" :names="names" />
       <Display :selected-names="selectedNames" :error="error" />      
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
       names: [],
       quantity: null,
       selectedNames: [],
+      clear: false,
       error: ''
     }
   },  
@@ -29,7 +30,6 @@ export default {
     draw(values) {
       if (values.error) {
         this.error = values.error
-        return
       }
 
       const item = ''
@@ -41,6 +41,12 @@ export default {
     },
     pushValues(item) {
       this.selectedNames.push(item)
+    },
+    clearMemory(clear) {   
+      this.clear = clear      
+      setTimeout(() => {
+        Object.assign(this.$data, this.$options.data())
+      }, 1)
     }
   }
 }

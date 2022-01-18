@@ -1,7 +1,7 @@
 <template>
   <div class="draw__button">
     <button class="btn__draw" @click="draw">Sortear</button>
-    <button class="btn__clear" @click="clear">Limpar</button>
+    <button class="btn__clear" @click="clearMemory">Limpar</button>
   </div>
 </template>
 
@@ -51,8 +51,9 @@ export default {
 
       return array
     },
-    clear() {
-
+    clearMemory() {
+      const clear = true
+      this.$emit('clearMemory', clear)
     }
   }
 }

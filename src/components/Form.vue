@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  props: ['clear'],
   data() {
     return {
       names: '',
@@ -21,6 +22,13 @@ export default {
       const names = self.names.split(',')
       const quantity = self.quantity
       self.$emit('setValues', { names, quantity })
+    }
+  },
+  watch: {
+    clear() {
+      if (this.clear) {
+        Object.assign(this.$data, this.$options.data())
+      }
     }
   }
 }
