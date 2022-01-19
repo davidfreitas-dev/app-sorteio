@@ -8,6 +8,7 @@ export default new Vuex.Store({
         names: [],
         quantity: null,
         selectedNames: [],
+        clear: false,
         error: {}
     },
     getters: {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-
+        clearMemory(state) {
+            state.names = []
+            state.selectedNames = []
+        }
     }
 })

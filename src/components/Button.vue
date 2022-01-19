@@ -27,9 +27,7 @@ export default {
       this.$emit('draw', { shuffleNames, error })
     },
     clearMemory() {
-      // altera o status da propriedade "limpar" para verdadeiro
-      const clear = true
-      this.$emit('clearMemory', clear)
+      this.$store.commit('clearMemory')
     }
   }
 }
