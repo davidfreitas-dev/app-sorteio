@@ -30,6 +30,10 @@ export default new Vuex.Store({
         clearMemory(state) {
             state.names = []
             state.selectedNames = []
+            state.clear = true
+            setTimeout(() => {
+                state.clear = false
+            }, 1)
         }
     }
 })

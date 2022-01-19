@@ -1,7 +1,7 @@
 <template>
   <div class="raffle">      
       <Form :clear="clear"/>
-      <Button @draw="draw" @clearMemory="clearMemory" />
+      <Button @draw="draw" />
       <Display />      
   </div>
 </template>
@@ -34,12 +34,6 @@ export default {
     pushValues(item) {
       // criar mutation para alterar a propriedade
       this.$store.state.selectedNames.push(item)
-    },
-    clearMemory(clear) {   
-      this.clear = clear      
-      setTimeout(() => {
-        Object.assign(this.$data, this.$options.data())
-      }, 1)
     }
   }
 }

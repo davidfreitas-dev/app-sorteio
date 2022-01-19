@@ -9,11 +9,15 @@
 
 <script>
 export default {
-  props: ['clear'],
   data() {
     return {
       names: '',
       quantity: null
+    }
+  },
+  computed: {
+    clear() {
+      return this.$store.state.clear
     }
   },
   methods: {
