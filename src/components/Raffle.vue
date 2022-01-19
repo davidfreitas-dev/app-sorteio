@@ -1,6 +1,6 @@
 <template>
   <div class="raffle">      
-      <Form :clear="clear"/>
+      <Form/>
       <Button @draw="draw" />
       <Display />      
   </div>
@@ -13,11 +13,6 @@ import Display from './Display.vue'
 
 export default {
   components: { Form, Button, Display },
-  data() {
-    return {
-      clear: false,
-    }
-  },  
   methods: {
     draw(values) {
       if (values.error) {
@@ -25,7 +20,7 @@ export default {
       }
 
       const item = ''
-      const quantity = this.quantity ? this.quantity : 1
+      const quantity = values.quantity ? values.quantity : 1
       const selectedName = values.shuffleNames.splice(0, quantity)
 
       this.pushValues(item)
