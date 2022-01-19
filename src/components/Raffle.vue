@@ -1,8 +1,8 @@
 <template>
   <div class="raffle">      
-      <Form @setValues="setValues" :clear="clear"/>
-      <Button @draw="draw" @clearMemory="clearMemory" :names="names" />
-      <Display :selected-names="selectedNames" :error="error" />      
+      <Form :clear="clear"/>
+      <Button @draw="draw" @clearMemory="clearMemory" />
+      <Display />      
   </div>
 </template>
 
@@ -15,18 +15,10 @@ export default {
   components: { Form, Button, Display },
   data() {
     return {
-      names: [],
-      quantity: null,
-      selectedNames: [],
       clear: false,
-      error: ''
     }
   },  
   methods: {
-    setValues(values) {
-      this.names = values.names
-      this.quantity = values.quantity
-    },
     draw(values) {
       if (values.error) {
         this.error = values.error
@@ -40,7 +32,8 @@ export default {
       selectedName.forEach(this.pushValues)
     },
     pushValues(item) {
-      this.selectedNames.push(item)
+      // criar mutation para alterar a propriedade
+      this.$store.state.selectedNames.push(item)
     },
     clearMemory(clear) {   
       this.clear = clear      

@@ -7,51 +7,27 @@
 
 <script>
 export default {
-  props: ['names'],
-  data() {    
-    return {
-      error: { message: '', status: false }
-    }
-  },
   methods: {
     draw() {
-      let self = this
-      if (self.names.length == 0) {
-
-        self.error.status = true
-        self.error.message = 'Não há nomes para sortear'
-
-        const error = self.error
+      const names = this.$store.state.names
+      const error = this.$store.state.error
+      
+      if (names == '') {
         const shuffleNames = []
-        
-        self.$emit('draw', { shuffleNames, error })
+        error.status = true
+        error.message = 'Não há nomes para sortear'
+        this.$emit('draw', { shuffleNames, error })
         return
-
       }
 
-      self.error.message = ''
-      self.error.status = false
+      error.message = ''
+      error.status = false
 
-      const error = self.error
-      const names = self.names
-      const shuffleNames = self.shuffle(names)
-
-      self.$emit('draw', { shuffleNames, error })
-    },
-    shuffle(array) {
-      var currentIndex = array.length, temporaryValue, randomIndex
-
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex -= 1
-        temporaryValue = array[currentIndex]
-        array[currentIndex] = array[randomIndex]
-        array[randomIndex] = temporaryValue
-      }
-
-      return array
+      const shuffleNames = this.$store.getters.shuffle
+      this.$emit('draw', { shuffleNames, error })
     },
     clearMemory() {
+      // altera o status da propriedade "limpar" para verdadeiro
       const clear = true
       this.$emit('clearMemory', clear)
     }

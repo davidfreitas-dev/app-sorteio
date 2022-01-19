@@ -11,7 +11,14 @@
 
 <script>
 export default {
-  props: ['selectedNames', 'error']
+  computed: {
+    selectedNames() {
+      return this.$store.state.selectedNames
+    },
+    error() {
+      return this.$store.state.error
+    }
+  }
 }
 </script>
 
