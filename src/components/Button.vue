@@ -17,7 +17,7 @@ export default {
         const shuffleNames = []
         error.status = true
         error.message = 'Não há nomes para sortear'
-        this.$emit('draw', { shuffleNames, quantity, error })
+        this.$emit('draw', { shuffleNames, quantity })
         return
       }
 
@@ -25,7 +25,7 @@ export default {
       error.status = false
 
       const shuffleNames = this.$store.getters.shuffle
-      this.$emit('draw', { shuffleNames, quantity, error })
+      this.$emit('draw', { shuffleNames, quantity })
     },
     clearMemory() {
       this.$store.commit('clearMemory')

@@ -15,20 +15,16 @@ export default {
   components: { Form, Button, Display },
   methods: {
     draw(values) {
-      if (values.error) {
-        this.error = values.error
-      }
-
-      const item = ''
+      const name = ''
       const quantity = values.quantity ? values.quantity : 1
       const selectedName = values.shuffleNames.splice(0, quantity)
 
-      this.pushValues(item)
+      this.pushValues(name)
       selectedName.forEach(this.pushValues)
     },
-    pushValues(item) {
+    pushValues(name) {
       // criar mutation para alterar a propriedade
-      this.$store.state.selectedNames.push(item)
+      this.$store.commit('pushValues', name)
     }
   }
 }

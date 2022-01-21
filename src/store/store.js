@@ -34,6 +34,9 @@ export default new Vuex.Store({
             setTimeout(() => {
                 state.clear = false
             }, 1)
+        },
+        pushValues(state, name) {
+            state.selectedNames.push(name)
         }
     }
 })
