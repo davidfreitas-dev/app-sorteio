@@ -1,5 +1,5 @@
 <template>
-  <div class="draw__button">
+  <div class="buttons">
     <button class="btn__draw" @click="draw">Sortear</button>
     <button class="btn__clear" @click="clearMemory">Limpar</button>
   </div>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-  .draw__button {
+  .buttons {
     display: flex;
     justify-content: center;
     align-items: center;

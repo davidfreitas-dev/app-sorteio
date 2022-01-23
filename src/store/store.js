@@ -35,8 +35,8 @@ export default new Vuex.Store({
                 state.clear = false
             }, 1)
         },
-        pushValues(state, name) {
-            state.selectedNames.push(name)
+        pushValues(state, selectedNames) {
+            state.selectedNames.push(selectedNames)
         }
     }
 })

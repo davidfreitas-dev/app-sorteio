@@ -1,11 +1,15 @@
 <template>
   <div class="draw__display">
     <ul>
-      <li v-for="(selectedName, index) in selectedNames" :key="index">
-        <span>{{ selectedName }}</span>
+      <li class="success" v-for="(names, index) in selectedNames" :key="index">
+        <span v-for="(name, index) in names" :key="index">
+          {{ name }}
+        </span>
       </li>
-      <span class="error" v-if="error.status">Erro: {{ error.message }}</span>
     </ul>
+    <span class="error" v-if="error.status">
+      {{ error.message }}
+    </span>
   </div>
 </template>
 
@@ -30,18 +34,29 @@ export default {
   }
 
   ul {
-    list-style: none;
     display: grid;
     place-items: center;
+    align-items: center;
+    list-style: none;
   }
 
-  span {
+  li {
+    margin-bottom: .75rem;
+  }
+
+  .success{
     font-size: 1.3rem;
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 3px;
+    background-color: var(--success);
   }
 
   .error {
     font-size: .85rem;
-    color: red;
-    padding: .75rem;
+    padding: .85rem;
+    border-radius: 3px;
+    color: #fff;
+    background-color: var(--danger);
   }
 </style>
