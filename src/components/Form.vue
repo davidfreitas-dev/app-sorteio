@@ -22,9 +22,9 @@ export default {
   },
   methods: {
     setValues() {
-      const names = this.names.split(',')
       const quantity = this.quantity
-      this.$store.state.names = names
+      const names = this.names.replace(/\s/g, '')
+      this.$store.state.names = names.split(',')
       this.$store.state.quantity = quantity
     }
   },
