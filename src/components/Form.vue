@@ -1,8 +1,8 @@
 <template>
   <div class="draw__form">
-      <textarea v-model="names" @blur="setValues" cols="30" rows="5"
+      <textarea v-model="names" @blur="setNames" cols="30" rows="5"
         placeholder="Digite aqui os nomes separados por vírgula"></textarea>
-      <input v-model="quantity" @blur="setValues" type="text"
+      <input v-model="quantity" @blur="setQtd" type="text"
         placeholder="Quantidade a ser sorteada por vez" />
   </div>
 </template>
@@ -21,10 +21,12 @@ export default {
     }
   },
   methods: {
-    setValues() {
-      const quantity = this.quantity
+    setNames() {
       const names = this.names.replace(/\s/g, '')
       this.$store.state.names = names.split(',')
+    },
+    setQtd() {
+      const quantity = this.quantity
       this.$store.state.quantity = quantity
     }
   },
