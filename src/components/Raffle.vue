@@ -1,7 +1,7 @@
 <template>
   <div class="raffle">      
-      <Form/>
-      <Button @draw="draw" />
+      <Form />
+      <Button />
       <Display />      
   </div>
 </template>
@@ -12,14 +12,7 @@ import Button from './Button.vue'
 import Display from './Display.vue'
 
 export default {
-  components: { Form, Button, Display },
-  methods: {
-    draw(values) {
-      const quantity = values.quantity ? values.quantity : 1
-      const selectedNames = values.shuffleNames.splice(0, quantity)
-      this.$store.commit('pushValues', selectedNames)
-    }
-  }
+  components: { Form, Button, Display }
 }
 </script>
 

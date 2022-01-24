@@ -18,8 +18,10 @@ export default {
         return
       }
       
+      const qty = quantity ? quantity : 1
       const shuffleNames = this.$store.getters.shuffle
-      this.$emit('draw', { shuffleNames, quantity })
+      const selectedNames = shuffleNames.splice(0, qty)
+      this.$store.commit('pushValues', selectedNames)
     },
     clearMemory() {
       this.$store.commit('clearMemory')

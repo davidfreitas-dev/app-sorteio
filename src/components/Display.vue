@@ -46,6 +46,7 @@ export default {
   .error {
     font-size: .85rem;
     padding: .85rem;
+    margin-top: 1rem;
     border-radius: 3px;
     color: #fff;
     background-color: var(--danger);
