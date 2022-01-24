@@ -11,19 +11,13 @@ export default {
     draw() {
       const names = this.$store.state.names
       const quantity = this.$store.state.quantity
-      const error = this.$store.state.error
       
       if (names == '') {
-        const shuffleNames = []
-        error.status = true
-        error.message = 'Não há nomes para sortear'
-        this.$emit('draw', { shuffleNames, quantity })
+        const error = { status: true, message: 'Não há nomes para sortear' }
+        this.$store.commit('setErrorMsg', error)
         return
       }
-
-      error.message = ''
-      error.status = false
-
+      
       const shuffleNames = this.$store.getters.shuffle
       this.$emit('draw', { shuffleNames, quantity })
     },

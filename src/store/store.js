@@ -27,6 +27,9 @@ export default new Vuex.Store({
         }
     },
     mutations: {
+        pushValues(state, selectedNames) {
+            state.selectedNames.push(selectedNames)
+        },
         clearMemory(state) {
             state.names = []
             state.selectedNames = []
@@ -35,8 +38,11 @@ export default new Vuex.Store({
                 state.clear = false
             }, 1)
         },
-        pushValues(state, selectedNames) {
-            state.selectedNames.push(selectedNames)
-        }
+        setErrorMsg(state, error) {
+            state.error = error
+            setTimeout(() => {
+                state.error = {}
+            }, 2000)
+        }        
     }
 })
