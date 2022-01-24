@@ -1,9 +1,9 @@
 <template>
   <div class="draw__display">
     <ul>
-      <li class="success" v-for="(names, index) in selectedNames" :key="index">
-        <span v-for="(name, index) in names" :key="index">
-          {{ name }}
+      <li>
+        <span class="success" v-for="(names, index) in selectedNames" :key="index">
+          {{ names }}
         </span>
       </li>
     </ul>
@@ -27,27 +27,18 @@ export default {
 </script>
 
 <style scoped>
+
   .draw__display {
     display: grid;
     justify-content: center;
     align-items: center;
   }
 
-  ul {
-    display: grid;
-    place-items: center;
-    align-items: center;
-    list-style: none;
-  }
-
-  li {
-    margin-bottom: .75rem;
-  }
-
   .success{
     font-size: 1.3rem;
     color: #fff;
-    padding: .5rem 1rem;
+    padding: .5rem 1rem;    
+    margin-bottom: .75rem;
     border-radius: 3px;
     background-color: var(--success);
   }
@@ -59,4 +50,12 @@ export default {
     color: #fff;
     background-color: var(--danger);
   }
+
+  li {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    list-style: none;
+  }
+
 </style>

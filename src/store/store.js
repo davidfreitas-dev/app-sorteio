@@ -28,7 +28,7 @@ export default new Vuex.Store({
     },
     mutations: {
         pushValues(state, selectedNames) {
-            state.selectedNames.push(selectedNames)
+            state.selectedNames.push(selectedNames.join(', '))
         },
         clearMemory(state) {
             state.names = []
