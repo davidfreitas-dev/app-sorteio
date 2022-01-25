@@ -71,8 +71,8 @@ export default {
   .slider:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
+    height: 19px;
+    width: 19px;
     left: 3px;
     bottom: 3px;
     background-color: white;

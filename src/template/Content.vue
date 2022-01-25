@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-      <h2 class="content__header">Sorteio de Nomes</h2>
+      <span class="content__header">Sorteio de Nomes</span>
       <Raffle />
   </div>
 </template>
@@ -16,7 +16,6 @@ export default {
   .content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     flex-grow: 1;
     margin-top: 70px;
@@ -24,5 +23,7 @@ export default {
 
   .content__header {
     padding-top: 1rem;
+    font-size: 1.85rem;
+    font-weight: 600;
   }
 </style>

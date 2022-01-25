@@ -1,27 +1,33 @@
 <template>
   <div class="draw__form">
-      <textarea v-model="names" @blur="handleBlur" cols="30" rows="5"
+      <textarea v-model="names" @blur="setNames" cols="30" rows="5"
         placeholder="Digite aqui os nomes separados por vírgula"></textarea>
-      <input v-model="quantity" @blur="handleBlur" type="text"
+      <input v-model="quantity" @blur="setQty" type="text"
         placeholder="Quantidade a ser sorteada por vez" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['clear'],
   data() {
     return {
       names: '',
       quantity: null
     }
   },
+  computed: {
+    clear() {
+      return this.$store.state.clear
+    }
+  },
   methods: {
-    handleBlur() {
-      let self = this
-      const names = self.names.split(',')
-      const quantity = self.quantity
-      self.$emit('setValues', { names, quantity })
+    setNames() {
+      const names = this.names.replace(/\s/g, '')
+      this.$store.state.names = names.split(',')
+    },
+    setQty() {
+      const quantity = this.quantity
+      this.$store.state.quantity = quantity
     }
   },
   watch: {
