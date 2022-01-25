@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="animate__animated animate__fadeIn animate__slow">
     <Header />
     <Content />
     <Footer />
