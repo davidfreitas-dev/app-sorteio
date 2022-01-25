@@ -2,12 +2,12 @@
   <div class="draw__display">
     <ul>
       <li>
-        <span class="success" v-for="(names, index) in selectedNames" :key="index">
+        <span class="success animate__animated animate__fadeIn" v-for="(names, index) in selectedNames" :key="index">
           {{ names }}
         </span>
       </li>
     </ul>
-    <span class="error" v-if="error.status">
+    <span class="error animate__animated animate__bounceIn" v-if="error.status">
       {{ error.message }}
     </span>
   </div>
