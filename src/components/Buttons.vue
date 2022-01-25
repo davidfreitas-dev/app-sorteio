@@ -1,6 +1,6 @@
 <template>
   <div class="buttons">
-    <button class="btn__draw" @click="draw">Sortear</button>
+    <button class="btn__draw" @click="drawNames">Sortear</button>
     <button class="btn__clear" @click="clearMemory">Limpar</button>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
   methods: {
-    draw() {
+    drawNames() {
       const names = this.$store.state.names
       const quantity = this.$store.state.quantity
       

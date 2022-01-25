@@ -1,18 +1,18 @@
 <template>
   <div class="raffle">      
       <Form />
-      <Button />
-      <Display />      
+      <Buttons />
+      <Result />      
   </div>
 </template>
 
 <script>
 import Form from './Form.vue'
-import Button from './Button.vue'
-import Display from './Display.vue'
+import Buttons from './Buttons.vue'
+import Result from './Result.vue'
 
 export default {
-  components: { Form, Button, Display }
+  components: { Form, Buttons, Result }
 }
 </script>
 

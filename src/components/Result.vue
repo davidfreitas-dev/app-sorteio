@@ -1,5 +1,5 @@
 <template>
-  <div class="draw__display">
+  <div class="result">
     <ul>
       <li>
         <span class="success animate__animated animate__fadeIn" v-for="(names, index) in selectedNames" :key="index">
@@ -27,8 +27,7 @@ export default {
 </script>
 
 <style scoped>
-
-  .draw__display {
+  .result {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -58,5 +57,4 @@ export default {
     align-items: center;
     list-style: none;
   }
-
 </style>
