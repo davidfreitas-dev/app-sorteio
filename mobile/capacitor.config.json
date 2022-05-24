@@ -1,0 +1,6 @@
+{
+  "appId": "com.namedraw.mobile",
+  "appName": "Name Draw",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
