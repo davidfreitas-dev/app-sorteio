@@ -70,6 +70,7 @@ export default ({
 }
 
 .page__title {
+  color: var(--font);
   font-size: 1.5rem;
   font-weight: 700;
 }

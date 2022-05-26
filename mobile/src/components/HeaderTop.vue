@@ -66,6 +66,7 @@ export default {
 
 <style>
 .brand {
+  color: var(--font);
   font-weight: 700;
   letter-spacing: -0.5px;
 }

@@ -21,12 +21,7 @@
     <button class="btn-clear" @click="clearNames">Limpar</button>
 
     <div class="display" v-if="selectedNames.length">
-      <span
-        size="12"
-        class="result"
-        v-for="(names, i) in selectedNames"
-        :key="i"
-      >
+      <span size="12" class="result" v-for="names in selectedNames" :key="names">
         {{ displayNames(names) }}
       </span>
     </div>
