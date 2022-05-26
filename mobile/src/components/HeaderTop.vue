@@ -3,7 +3,9 @@
     <ion-toolbar>
       <ion-row class="ion-justify-content-between ion-align-items-center">
         <div>
-          <ion-title class="header__title">Dave<ion-text>dev</ion-text></ion-title>
+          <ion-title class="brand">
+            Dave<ion-text>dev</ion-text>
+          </ion-title>
         </div>
         <div>
           <ion-row class="ion-justify-content-between ion-align-items-center">
@@ -63,20 +65,15 @@ export default {
 </script>
 
 <style>
-.header__title {
+.brand {
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
-.header__title ion-text {
+.brand ion-text {
   font-size: 0.85rem;
   color: var(--main);
   margin: 0 0.15rem;
-}
-
-.page__title {
-  font-size: 1.5rem;
-  font-weight: 700;
 }
 
 @media only screen and (min-width: 550px) {

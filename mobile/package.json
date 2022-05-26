@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^3.4.3",
+    "@ionic/cli": "6.19.1",
     "@vue/cli-plugin-babel": "~5.0.0-rc.1",
     "@vue/cli-plugin-e2e-cypress": "~5.0.0-rc.1",
     "@vue/cli-plugin-eslint": "~5.0.0-rc.1",

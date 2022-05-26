@@ -1,14 +1,18 @@
 <template>
     <div>
-        <textarea placeholder="Digite aqui os nomes a serem sorteados, separados por vírgula." 
-            rows="5" v-model="names" @blur="setNames" @keyup.enter="$event.target.nextElementSibling.focus()"></textarea>
-        <input placeholder="Quantidade a ser sorteada por vez" class="ion-margin" 
+        <textarea rows="5" v-model="names" @blur="setNames" 
+            placeholder="Digite os nomes separados por vírgula" 
+            @keyup.enter="$event.target.nextElementSibling.focus()">
+        </textarea>
+        
+        <input class="ion-margin" placeholder="Quantidade a ser sorteada por vez" 
             v-model="quantity" @keyup.enter="$event.target.nextElementSibling.focus()">
 
-        <button class="draw-button" @click="drawNames">Sortear</button>
-        <button class="clear-button" @click="clearNames">Limpar</button>
+        <button class="btn-draw" @click="drawNames">Sortear</button>
 
-        <div class="display-result" v-if="selectedNames.length">
+        <button class="btn-clear" @click="clearNames">Limpar</button>
+
+        <div class="display" v-if="selectedNames.length">
             <span size="12" class="result" v-for="(names, i) in selectedNames" :key="i">
                 {{ displayNames(names) }}
             </span>
@@ -90,14 +94,14 @@ button:focus {
     outline: 0;
 }
 
-.draw-button {
+.btn-draw {
     color: #fff;
     background-color: var(--main);
     align-self: flex-start;
     margin-right: .25rem;
 }
 
-.clear-button {
+.btn-clear {
     color: #3c3c3c;
     border: 1px solid var(--secondary);
     background-color: #fff;
@@ -126,7 +130,7 @@ span {
     width: 100%;
 }
 
-.display-result {
+.display {
     margin: .5rem 0 1rem 0;
 }
 
