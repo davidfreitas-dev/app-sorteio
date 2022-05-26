@@ -1,6 +1,6 @@
 {
   "appId": "com.namedraw.mobile",
-  "appName": "Name Draw",
+  "appName": "Sorteio de Nomes",
   "webDir": "dist",
   "bundledWebRuntime": false
 }

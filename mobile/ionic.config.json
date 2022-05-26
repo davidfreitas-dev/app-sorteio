@@ -1,5 +1,5 @@
 {
-  "name": "app-sorteio-vue",
+  "name": "sorteio-de-nomes",
   "integrations": {
     "capacitor": {}
   },
